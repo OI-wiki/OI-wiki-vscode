@@ -1,10 +1,17 @@
 {
-	"name": "oi-wiki",
-	"displayName": "OI-wiki",
+	"name": "oi-wiki-vscode",
+	"displayName": "OI Wiki",
 	"description": "在 VS Code 中搜索并查看 OI-wiki",
-	"version": "0.0.1",
+	"icon": "asset/icon.png",
+	"homepage": "https://github.com/OI-wiki/OI-wiki-vscode",
+	"publisher": "oi-wiki-team",
+	"version": "0.1.0",
 	"engines": {
 		"vscode": "^1.42.0"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/OI-wiki/OI-wiki-vscode.git"
 	},
 	"categories": [
 		"Other"
