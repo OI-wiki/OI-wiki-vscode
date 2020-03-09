@@ -60,7 +60,7 @@ export function activate(context: vscode.ExtensionContext) {
     LoadingTip.text = "$(sync~spin)正在加载页面...";
     LoadingTip.show();
     let pickResult = data.filter(v => getItemString(v) === pickResultString)[0];
-    let HTMLStr = (await axios.get(`https://oi-wiki.org${pickResult.url}`)).data;
+    let HTMLStr = (await axios.get(`https://cdn-for-oi-wiki.billchn.com${pickResult.url}`)).data;
     let webview = vscode.window.createWebviewPanel('oi-wiki', pickResult.title, { viewColumn: vscode.ViewColumn.Two, preserveFocus: false });
     webview.webview.html = HTMLStr;
     webview.reveal(vscode.ViewColumn.Beside, false);
