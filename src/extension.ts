@@ -12,17 +12,17 @@ interface ISearchResult {
 }
 
 function stripHTMLAndEscapes(str: string): string {
-  let res = str.replace(/<.*?>/g, '')
-  res = res.replace(/\\[a-z]/g, '')
-  res = res.replace(/\s*/, ' ')
-  return res
+  let res = str.replace(/<.*?>/g, '');
+  res = res.replace(/\\[a-z]/g, '');
+  res = res.replace(/\s*/, ' ');
+  return res;
 }
 
 function getItemString(item: ISearchResult): string {
-  let highlight = item.highlight || '无简介'
-  let res = `${item.title}: ${highlight.concat()}`
-  res = stripHTMLAndEscapes(res)
-  return res
+  let highlight = item.highlight || '无简介';
+  let res = `${item.title}: ${highlight.concat()}`;
+  res = stripHTMLAndEscapes(res);
+  return res;
 }
 
 export function activate(context: vscode.ExtensionContext) {
@@ -35,36 +35,36 @@ export function activate(context: vscode.ExtensionContext) {
   let disposable = vscode.commands.registerCommand('extension.OIWiki', async () => {
     // The code you place here will be executed every time your command is executed
     // Display a message box to the user
-    let keyword = await vscode.window.showInputBox({ prompt: "输入你想搜索的 OI-wiki 词条..." })
+    let keyword = await vscode.window.showInputBox({ prompt: "输入你想搜索的 OI-wiki 词条..." });
     if (keyword === undefined) {
-      return
+      return;
     }
-    let res
+    let res;
     try {
-      res = await axios.get(encodeURI(`https://search.oi-wiki.org:8443/?s=${keyword}`))
+      res = await axios.get(encodeURI(`https://search.oi-wiki.org:8443/?s=${keyword}`));
     } catch (e) {
-      vscode.window.showErrorMessage("无法连接到服务器")
-      return
+      vscode.window.showErrorMessage("无法连接到服务器");
+      return;
     }
-    let data: Array<ISearchResult> = res?.data
+    let data: Array<ISearchResult> = res?.data;
     if (data.length === 0) {
-      vscode.window.showWarningMessage("没有找到相关词条")
-      return
+      vscode.window.showWarningMessage("没有找到相关词条");
+      return;
     }
-    let previewString = [...data].map(getItemString)
-    let pickResultString = await vscode.window.showQuickPick(previewString, { canPickMany: false })
+    let previewString = [...data].map(getItemString);
+    let pickResultString = await vscode.window.showQuickPick(previewString, { canPickMany: false });
     if (pickResultString === undefined) {
-      return
+      return;
     }
-    let LoadingTip = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Right)
-    LoadingTip.text = "$(sync~spin)正在加载页面..."
-    LoadingTip.show()
-    let pickResult = data.filter(v => getItemString(v) === pickResultString)[0]
-    let HTMLStr = (await axios.get(`https://oi-wiki.org${pickResult.url}`)).data
-    let webview = vscode.window.createWebviewPanel('oi-wiki', pickResult.title, { viewColumn: vscode.ViewColumn.Two, preserveFocus: false })
-    webview.webview.html = HTMLStr
-    webview.reveal(vscode.ViewColumn.Beside, false)
-    LoadingTip.dispose()
+    let LoadingTip = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Right);
+    LoadingTip.text = "$(sync~spin)正在加载页面...";
+    LoadingTip.show();
+    let pickResult = data.filter(v => getItemString(v) === pickResultString)[0];
+    let HTMLStr = (await axios.get(`https://oi-wiki.org${pickResult.url}`)).data;
+    let webview = vscode.window.createWebviewPanel('oi-wiki', pickResult.title, { viewColumn: vscode.ViewColumn.Two, preserveFocus: false });
+    webview.webview.html = HTMLStr;
+    webview.reveal(vscode.ViewColumn.Beside, false);
+    LoadingTip.dispose();
   });
 
   context.subscriptions.push(disposable);
