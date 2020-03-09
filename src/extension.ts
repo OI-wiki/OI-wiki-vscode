@@ -61,9 +61,13 @@ export function activate(context: vscode.ExtensionContext) {
     LoadingTip.show();
     let pickResult = data.filter(v => getItemString(v) === pickResultString)[0];
     let HTMLStr = (await axios.get(`https://cdn-for-oi-wiki.billchn.com${pickResult.url}`)).data;
-    let webview = vscode.window.createWebviewPanel('oi-wiki', pickResult.title, { viewColumn: vscode.ViewColumn.Two, preserveFocus: false });
-    webview.webview.html = HTMLStr;
+    let webview = vscode.window.createWebviewPanel('oi-wiki', pickResult.title, { viewColumn: vscode.ViewColumn.Two, preserveFocus: false }, {
+      enableScripts: true,
+      retainContextWhenHidden: true
+    });
     webview.reveal(vscode.ViewColumn.Beside, false);
+    HTMLStr = HTMLStr.replace('<body', '<body style="background: white"');
+    webview.webview.html = HTMLStr
     LoadingTip.dispose();
   });
 
