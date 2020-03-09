@@ -10,14 +10,16 @@
 		"Other"
 	],
 	"activationEvents": [
-		"onCommand:extension.helloWorld"
+		"onCommand:extension.OIWiki"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
 		"commands": [
 			{
-				"command": "extension.helloWorld",
-				"title": "Hello World"
+				"command": "extension.OIWiki",
+				"title": "搜索 OI-wiki",
+				"description": "搜索 OI-wiki",
+				"category": "OI-wiki"
 			}
 		]
 	},
@@ -41,5 +43,8 @@
 		"mocha": "^7.0.1",
 		"typescript": "^3.7.5",
 		"vscode-test": "^1.3.0"
+	},
+	"dependencies": {
+		"axios": "^0.19.2"
 	}
 }
