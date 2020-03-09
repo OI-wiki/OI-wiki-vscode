@@ -10,6 +10,6 @@
 
 使用 `Ctrl+P` 或 `F1` 打开命令面板，输入 `oiwiki`，按下回车键即可进行搜索。
 
-![demo gif](https://github.com/enter-tainer/OI-wiki-vscode/asset/demo.gif)
+![demo gif](https://github.com/Enter-tainer/OI-wiki-vscode/blob/master/asset/demo.gif)
 
 **Enjoy!**
