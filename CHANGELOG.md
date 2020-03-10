@@ -15,3 +15,7 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 ## v0.1.2
 
 - 文档改进
+
+## v0.1.3
+
+- 修复了文档中动图的路径

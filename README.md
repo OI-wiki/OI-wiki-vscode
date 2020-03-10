@@ -4,7 +4,7 @@
 
 ## 安装
 
-前往 VS Code 插件市场，搜索 `OI wiki` 即可。
+前往 VS Code 扩展市场，搜索 `OI wiki` 即可。
 
 ## 使用
 
