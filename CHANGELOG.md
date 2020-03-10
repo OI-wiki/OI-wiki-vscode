@@ -19,3 +19,9 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 ## v0.1.3
 
 - 修复了文档中动图的路径
+
+## v0.1.4
+
+- 添加了 License
+- 优化了图标图片
+- 修复了文档中的 typo
