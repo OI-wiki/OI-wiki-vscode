@@ -8,7 +8,7 @@
 
 ## 使用
 
-使用 `Ctrl+P` 或 `F1` 打开命令面板，输入 `oiwiki`，按下回车键即可进行搜索。
+使用 `Ctrl+Shift+P` 或 `F1` 打开命令面板（Command Palette），输入 `OI-wiki`，按下回车键即可进行搜索。
 
 ![demo gif](https://github.com/OI-wiki/OI-wiki-vscode/raw/master/asset/demo.gif)
 
