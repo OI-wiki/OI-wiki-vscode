@@ -5,7 +5,7 @@
 	"icon": "asset/icon.png",
 	"homepage": "https://github.com/OI-wiki/OI-wiki-vscode",
 	"publisher": "oi-wiki-team",
-	"version": "0.1.1",
+	"version": "0.1.2",
 	"engines": {
 		"vscode": "^1.42.0"
 	},

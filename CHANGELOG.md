@@ -4,6 +4,14 @@ All notable changes to the "oi-wiki" extension will be documented in this file.
 
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
-## [Unreleased]
+## v0.1.0
 
 - Initial release
+
+## v0.1.1
+
+- 修复了暗色模式下，网页背景变黑的问题。
+
+## v0.1.2
+
+- 文档改进
