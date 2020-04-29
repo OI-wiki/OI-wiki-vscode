@@ -11,11 +11,14 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: '10.x'
+      - name: Get Commit Hash
+        id: get-hash
+        run: echo ::set-output name=HASH::$(git rev-parse --short HEAD)
       - run: npm install
       - run: npm install vsce -g
-      - run: vsce package -o oi-wiki-vscode-build-${{github.run_number}}.vsix
+      - run: vsce package -o oi-wiki-vscode-build-${{steps.get-hash.outputs.HASH}}.vsix
       - name: Upload Artifact
         uses: actions/upload-artifact@v1
         with:
-          name: oi-wiki-vscode-build-${{github.run_number}}
-          path: oi-wiki-vscode-build-${{github.run_number}}.vsix
+          name: oi-wiki-vscode-build-${{steps.get-hash.outputs.HASH}}
+          path: oi-wiki-vscode-build-${{steps.get-hash.outputs.HASH}}.vsix
