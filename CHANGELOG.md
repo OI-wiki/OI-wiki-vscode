@@ -25,3 +25,7 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 - 添加了 License
 - 优化了图标图片
 - 修复了文档中的 typo
+
+## v0.1.5
+
+- 修复了无法加载页面的问题
