@@ -69,7 +69,7 @@ export function activate(context: vscode.ExtensionContext) {
     webview.reveal(vscode.ViewColumn.Beside, false);
     const workaroundRegex = /href="(\.\.\/)*assets/g;
     HTMLStr = HTMLStr.replace(workaroundRegex, 'href="https://oi-wiki.org/assets');
-    // HTMLStr = HTMLStr.replace('<body', '<body style="background: white"');
+    HTMLStr = HTMLStr.replace('<body', '<body style="background: white"');
     webview.webview.html = HTMLStr
     LoadingTip.dispose();
   });
