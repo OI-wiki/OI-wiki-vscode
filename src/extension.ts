@@ -1,6 +1,7 @@
 // The module 'vscode' contains the VS Code extensibility API
 // Import the module and reference it with the alias vscode in your code below
 import * as vscode from 'vscode';
+import * as https from 'https';
 import axios from 'axios';
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
@@ -39,6 +40,7 @@ export function activate(context: vscode.ExtensionContext) {
     if (keyword === undefined) {
       return;
     }
+    https.globalAgent.options.rejectUnauthorized = false;
     let res;
     try {
       res = await axios.get(encodeURI(`https://search.oi-wiki.org:8443/?s=${keyword}`));
