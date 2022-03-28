@@ -53,6 +53,6 @@
 	},
 	"dependencies": {
 		"axios": "^0.21.1",
-    "https": "^1.0.0"
+    		"https": "^1.0.0"
 	}
 }
